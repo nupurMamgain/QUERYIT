@@ -1,6 +1,6 @@
-# Queryit 
+# QueryiT
 
-Queryit is a full-stack AI-powered web application that allows users to input up to **3 URLs** and ask natural language questions.  
+QueryiT is a full-stack AI-powered web application that allows users to input up to **3 URLs** and ask natural language questions.  
 The system extracts and processes content from the provided web pages and generates intelligent, context-aware responses using **LangChain-based processing**.
 
 ---
