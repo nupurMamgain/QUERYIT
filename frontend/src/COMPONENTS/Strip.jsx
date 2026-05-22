@@ -8,7 +8,6 @@ function Strip() {
                 <p>🚀 Faster Than Reading</p>
                 <p>📚 Understand Any Website</p>
                 <p>🤖 Ask Questions Instantly</p>
-                {/* duplicate */}
                 <p>⚡ AI Powered Research</p>
                 <p>🚀 Faster Than Reading</p>
                 <p>📚 Understand Any Website</p>

@@ -86,23 +86,27 @@ const handleSubmit = async () => {
   try {
     setLoading(true);
 
-    const response = await fetch(
-      "http://127.0.0.1:8000/ask",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          urls,
-          question,
-        }),
-      }
-    );
+    // STEP 1: send URLs
+    await fetch("http://127.0.0.1:8000/process-urls", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        urls,
+      }),
+    });
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch answer");
-    }
+    // STEP 2: ask question
+    const response = await fetch("http://127.0.0.1:8000/ask", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        question,
+      }),
+    });
 
     const data = await response.json();
 
@@ -112,11 +116,7 @@ const handleSubmit = async () => {
 
   } catch (error) {
     console.log(error);
-
-    setErrors((prev) => ({
-      ...prev,
-      api: "Something went wrong",
-    }));
+    setErrors({ api: "Something went wrong" });
 
   } finally {
     setLoading(false);
