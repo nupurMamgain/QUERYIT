@@ -100,7 +100,7 @@ def ask(request: QUESTIONRequest):
         search_kwargs={"k": 6}
     )
 
-    # ✅ IMPORTANT FIX (robust retrieval)
+
     docs = retriever.invoke(request.question)
 
     if not docs:
