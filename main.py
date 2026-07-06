@@ -1,14 +1,8 @@
-import os
+
 import pickle
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from langchain_community.document_loaders import WebBaseLoader
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import FAISS
-from langchain_community.embeddings import HuggingFaceEmbeddings
-
-from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 
 from models import URLRequest, QUESTIONRequest
@@ -20,7 +14,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173","https://queryit-frontend.vercel.app/"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -43,6 +37,11 @@ def home():
 
 @app.post("/process-urls")
 def process(request: URLRequest):
+    
+    from langchain_community.document_loaders import WebBaseLoader
+    from langchain_text_splitters import RecursiveCharacterTextSplitter
+    from langchain_community.vectorstores import FAISS
+    from langchain_community.embeddings import HuggingFaceEmbeddings
 
     urls = [u.strip() for u in request.urls if u.strip()]
 
@@ -88,6 +87,9 @@ def process(request: URLRequest):
     }
 @app.post("/ask")
 def ask(request: QUESTIONRequest):
+    from langchain_groq import ChatGroq
+    import os
+
 
     if not os.path.exists(FILE_PATH):
         return {"answer": "Please process URLs first"}
