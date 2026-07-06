@@ -1,8 +1,8 @@
-
+import os
 import pickle
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
+from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 
 from models import URLRequest, QUESTIONRequest
@@ -14,7 +14,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173","https://queryit-frontend.vercel.app/"],
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -87,9 +87,6 @@ def process(request: URLRequest):
     }
 @app.post("/ask")
 def ask(request: QUESTIONRequest):
-    from langchain_groq import ChatGroq
-    import os
-
 
     if not os.path.exists(FILE_PATH):
         return {"answer": "Please process URLs first"}
