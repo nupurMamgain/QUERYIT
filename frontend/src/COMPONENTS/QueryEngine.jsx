@@ -87,7 +87,7 @@ const handleSubmit = async () => {
     setLoading(true);
 
     // STEP 1: send URLs
-    await fetch("http://127.0.0.1:8000/process-urls", {
+    await fetch("https://compassionate-dedication-production-52cb.up.railway.app/process-urls", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -98,7 +98,7 @@ const handleSubmit = async () => {
     });
 
     // STEP 2: ask question
-    const response = await fetch("http://127.0.0.1:8000/ask", {
+    const response = await fetch("https://compassionate-dedication-production-52cb.up.railway.app/ask", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
