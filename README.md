@@ -63,6 +63,8 @@ The system uses **LangChain** to structure and process information efficiently.
   <img width="1337" height="636" alt="image" src="https://github.com/user-attachments/assets/6274a847-5bca-4362-b6f7-0987ffa3cd09" />
   <img width="1336" height="617" alt="image" src="https://github.com/user-attachments/assets/68f80402-96a3-4d32-b1f9-a94f1185ef41" />
   <img width="1331" height="623" alt="image" src="https://github.com/user-attachments/assets/641ac957-526a-4449-9772-5727ba76c274" />
+
+  
   <img width="1335" height="624" alt="image" src="https://github.com/user-attachments/assets/cbeba6d0-471a-477c-bbdc-5c09eeb6f45f" />
   <img width="1333" height="624" alt="image" src="https://github.com/user-attachments/assets/cee715b7-7594-42fe-8504-e4d5918e13e4" />
 
