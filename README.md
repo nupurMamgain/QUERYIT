@@ -55,3 +55,9 @@ The system uses **LangChain** to structure and process information efficiently.
 -  Modern UI styled with Tailwind CSS
 -  Real-time frontend ↔ backend communication
 -  Modular and scalable architecture
+
+  ---
+
+  ## WEBSITE OVERVIEW
+  <img width="1366" height="720" alt="image" src="https://github.com/user-attachments/assets/8fb0c061-ab20-4fd8-bd52-1a445e227cb6" />
+
