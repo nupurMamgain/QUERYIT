@@ -86,29 +86,22 @@ const handleSubmit = async () => {
   try {
     setLoading(true);
 
-    // STEP 1: send URLs
-    await fetch("https://compassionate-dedication-production-52cb.up.railway.app/process-urls", {
+    const response = await fetch("/api/ask", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        urls,
-      }),
-    });
-
-    // STEP 2: ask question
-    const response = await fetch("https://compassionate-dedication-production-52cb.up.railway.app/ask", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+        urls: urls.filter((url) => isValidURL(url)),
         question,
       }),
     });
 
     const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Request failed");
+    }
 
     setAnswer(data.answer);
 
